@@ -1,0 +1,18 @@
+---
+title: "MP4"
+author: "Ruth Tekleab Mekbib"
+date: "April 30, 2019"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(RMySQL)
+db <- dbConnect(MySQL(), 
+                host = "scidb.smith.edu", 
+                user = "mth292", 
+                password = "RememberPi", 
+                dbname = "imdb")
+knitr::opts_chunk$set(connection = db, max.print = 20)
+```
+
