@@ -48,6 +48,18 @@ man_woman<- rbind(man, woman)
 
 ```
 
+```{r}
+#man_woman %>%
+#group_by(production_year) %>%
+  #summarise(N= n(), count(title))
+```
+
+```{r}
+Man_v_woman <- ggplot(man_woman, aes(x = production_year, y = count , col = gender))
+
+Man_v_woman
+```
+
 
 
 
