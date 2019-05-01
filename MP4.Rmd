@@ -18,6 +18,43 @@ db <- dbConnect(MySQL(),
 knitr::opts_chunk$set(connection = db, max.print = 20)
 ```
 
+
+```{r}
+man <- db %>%
+  dbGetQuery("SELECT *
+              FROM title
+              WHERE production_year >= 2005 AND production_year <=2015
+              AND kind_id = 1
+              AND title like '% man %' ;")%>%
+
+mutate (gender= "M")
+```
+
+
+```{r}
+woman <- db %>%
+  dbGetQuery("SELECT *
+              FROM title
+               WHERE production_year >= 2005 AND production_year <=2015
+              AND kind_id = 1
+              AND title like '% woman %' ;") %>%
+
+mutate (gender= "W")
+```
+
+```{r}
+#joining the two tables
+man_woman<- rbind(man, woman)
+
+```
+
+
+
+
+
+
+
+
 **Footnotes:**
 
 GitHub repository:
