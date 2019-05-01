@@ -1,11 +1,13 @@
 ---
 title: "MP4"
-author: "Ruth Tekleab Mekbib"
+author: "Ruth Tekleab Mekbib and Dee Graham"
 date: "April 30, 2019"
-output: html_document
+output:
+  html_document:
+    code_folding: hide
 ---
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 library(tidyverse)
 library(RMySQL)
 db <- dbConnect(MySQL(), 
@@ -16,3 +18,8 @@ db <- dbConnect(MySQL(),
 knitr::opts_chunk$set(connection = db, max.print = 20)
 ```
 
+**Footnotes:**
+
+GitHub repository:
+
+https://github.com/DeeG2020/MiniProject4.git 
