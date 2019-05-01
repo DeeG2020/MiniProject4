@@ -55,12 +55,15 @@ man_woman<- rbind(man, woman)
 ```
 
 ```{r}
-#Man_v_woman <- ggplot(man_woman, aes(x = production_year, y = count , col = gender))
+Man_v_woman <- ggplot(man_woman, aes(x = production_year, fill = gender))+
+  geom_bar(position = "dodge")
+  
 
-#Man_v_woman
+Man_v_woman
 ```
 
 
+Ask about making another graph for leading roles/director by gender etc.
 
 
 
