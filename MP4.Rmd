@@ -1,11 +1,21 @@
 ---
-title: "MP4"
-author: "Ruth Tekleab Mekbib and Dee Graham"
-date: "April 30, 2019"
+title: "Sexism in the entertainment industry? No kidding"
+sub: "Too MANy Men?"
+
+author: "Written by Ruth Tekleab Mekbib, Dee Graham and Caroline E Choy "
 output:
   html_document:
     code_folding: hide
+    df_print: paged
+    theme: lumen 
 ---
+
+`r format(Sys.time())`
+
+
+![](AdobeStock_62125649-835x424.png)
+
+[Image Source](https://askthescientists.com/men-women-different/)
 
 ```{r message = FALSE, warning = FALSE}
 library(tidyverse)
@@ -44,19 +54,32 @@ mutate (gender= "W")
 
 ```{r}
 #joining the two tables
-man_woman<- rbind(man, woman)
+man_woman<- rbind(man, woman) 
+  #summarize(arrange(desc(production_year)))
 
 ```
 
 ```{r}
-#man_woman %>%
-#group_by(production_year) %>%
-  #summarise(N= n(), count(title))
+Man_Woman<-man_woman %>%
+  select (id, title, kind_id, production_year, gender)
+  
+```
+
+
+```{r}
+Man_Woman <- Man_Woman[order(Man_Woman$production_year), ]
+```
+
+```{r, echo = FALSE}
+Man_Woman
 ```
 
 ```{r}
+
+#Graph 1 showing men vs women 
 Man_v_woman <- ggplot(man_woman, aes(x = production_year, fill = gender))+
-  geom_bar(position = "dodge")
+  geom_bar(position = "dodge") +
+  labs(x= "Production Year", y= "Number of Movies", title= ("Movie Titles with the word 'Man' vs 'Woman' from 2005 to 2015"))
   
 
 Man_v_woman
